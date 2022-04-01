@@ -21,29 +21,32 @@ class UUIDMixin(models.Model):
 
 
 class Genre(UUIDMixin, TimeStampedMixin):
-    name = models.CharField('name', max_length=255)
+    name = models.CharField(_('name'), max_length=255)
     # blank=True делает поле необязательным для заполнения.
-    description = models.TextField('description', blank=True)
+    description = models.TextField(_('description'), blank=True)
 
     def __str__(self):
-        return self.title 
+        return self.name 
 
     class Meta:
         # Ваши таблицы находятся в нестандартной схеме. Это нужно указать в классе модели
         db_table = "content\".\"genre"
         # Следующие два поля отвечают за название модели в интерфейсе
-        verbose_name = 'genre'
-        verbose_name_plural = 'genres' 
+        verbose_name = _('genre')
+        verbose_name_plural = _('genres') 
 
 
 class Filmwork(UUIDMixin, TimeStampedMixin):
     title = models.CharField(_('title'), max_length=255)
     description = models.TextField(_('description'), blank=True)
     creation_date = models.DateField(_('creation_date'))
-    rating = models.FloatField('rating', blank=True,
+    rating = models.FloatField(_('rating'), blank=True,
                                validators=[MinValueValidator(0),
                                            MaxValueValidator(100)]) 
-    type = models.TextChoices('type', 'movie tv_show')
+    type = models.CharField(
+        max_length=10,
+        choices=[('movie', 'movie'), (_('tv_show'), _('tv_show'))]
+    )
 
     def __str__(self):
         return self.title 
@@ -52,8 +55,8 @@ class Filmwork(UUIDMixin, TimeStampedMixin):
         # Ваши таблицы находятся в нестандартной схеме. Это нужно указать в классе модели
         db_table = "content\".\"film_work"
         # Следующие два поля отвечают за название модели в интерфейсе
-        verbose_name = 'film_work'
-        verbose_name_plural = 'filmworks' 
+        verbose_name = _('filmwork') 
+        verbose_name_plural = _('filmworks')
 
 
 class GenreFilmwork(UUIDMixin):
@@ -66,17 +69,20 @@ class GenreFilmwork(UUIDMixin):
 
 
 class Person(UUIDMixin, TimeStampedMixin):
-    name = models.CharField('name', max_length=255)
+    full_name = models.CharField(_('full_name'), max_length=255)
 
     class Meta:
-        db_table = "content\".\"person" 
+        db_table = "content\".\"person"
+        verbose_name = _('person') 
+        verbose_name_plural = _('persons')
+
 
 
 class PersonFilmWork(UUIDMixin):
     film_work = models.ForeignKey('Filmwork', on_delete=models.CASCADE)
     person = models.ForeignKey('Person', on_delete=models.CASCADE)
-    role = models.TextField('role', null=True)
+    role = models.TextField(_('role'), null=True)
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        db_table = "content\".\"person_film_work" 
+        db_table = "content\".\"person_film_work"

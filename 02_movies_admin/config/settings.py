@@ -112,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 #LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'ru-RU' 
 
-LOCALE_PATH = ['movies/locale'] 
+LOCALE_PATHS = ['movies/locale'] 
 
 TIME_ZONE = 'UTC'
 
