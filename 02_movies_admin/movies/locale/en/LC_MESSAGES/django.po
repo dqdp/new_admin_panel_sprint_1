@@ -1211,60 +1211,63 @@ msgstr ""
 
 #: movies/apps.py:8
 msgid "movies"
-msgstr ""
+msgstr "Фильмы"
 
 #: movies/models.py:24
 msgid "name"
-msgstr ""
+msgstr "Имя"
 
 #: movies/models.py:26 movies/models.py:41
 msgid "description"
-msgstr ""
+msgstr "Описание"
 
 #: movies/models.py:35
 msgid "genre"
-msgstr ""
+msgstr "Жанр"
 
 #: movies/models.py:36
 msgid "genres"
-msgstr ""
+msgstr "Жанры"
 
 #: movies/models.py:40
 msgid "title"
-msgstr ""
+msgstr "Название"
 
 #: movies/models.py:42
 msgid "creation_date"
-msgstr ""
+msgstr "Дата премьеры"
 
 #: movies/models.py:43
 msgid "rating"
-msgstr ""
+msgstr "Рейтинг"
 
 #: movies/models.py:48
 msgid "tv_show"
-msgstr ""
+msgstr "ТВ шоу"
 
 #: movies/models.py:58
 msgid "filmwork"
-msgstr ""
+msgstr "Кинопроизведение"
 
 #: movies/models.py:59
 msgid "filmworks"
-msgstr ""
+msgstr "Кинопроизведения"
 
 #: movies/models.py:72
 msgid "full_name"
-msgstr ""
+msgstr "Имя"
 
 #: movies/models.py:76
 msgid "person"
-msgstr ""
+msgstr "Персона"
 
 #: movies/models.py:77
 msgid "persons"
-msgstr ""
+msgstr "Персоны"
 
 #: movies/models.py:84
 msgid "role"
-msgstr ""
+msgstr "Роль"
+
+msgid "type"
+msgstr "Тип"

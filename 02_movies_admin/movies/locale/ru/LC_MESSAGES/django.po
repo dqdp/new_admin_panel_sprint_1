@@ -1237,7 +1237,7 @@ msgstr "Название"
 
 #: movies/models.py:42
 msgid "creation_date"
-msgstr "Дата создания"
+msgstr "Дата премьеры"
 
 #: movies/models.py:43
 msgid "rating"
@@ -1257,7 +1257,7 @@ msgstr "Кинопроизведения"
 
 #: movies/models.py:72
 msgid "full_name"
-msgstr "Полное имя"
+msgstr "Имя"
 
 #: movies/models.py:76
 msgid "person"
@@ -1270,3 +1270,6 @@ msgstr "Персоны"
 #: movies/models.py:84
 msgid "role"
 msgstr "Роль"
+
+msgid "type"
+msgstr "Тип"

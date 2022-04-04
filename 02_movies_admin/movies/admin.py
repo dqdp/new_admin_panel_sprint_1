@@ -2,7 +2,11 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Genre, Filmwork, GenreFilmwork, Person, PersonFilmWork
+from .models.genre import Genre
+from .models.genre_filmwork import GenreFilmwork
+from .models.filmwork import Filmwork
+from .models.person import Person
+from .models.person_filmwork import PersonFilmWork
 
 
 @admin.register(Genre)
