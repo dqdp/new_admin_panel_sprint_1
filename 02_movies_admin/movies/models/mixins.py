@@ -1,4 +1,5 @@
 import uuid
+
 from django.db import models
 
 
@@ -7,7 +8,6 @@ class TimeStampedMixin(models.Model):
     modified = models.DateTimeField(auto_now=True)
 
     class Meta:
-        # Этот параметр указывает Django, что этот класс не является представлением таблицы
         abstract = True
 
 

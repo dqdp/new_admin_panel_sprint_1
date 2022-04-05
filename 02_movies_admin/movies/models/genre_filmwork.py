@@ -6,7 +6,8 @@ from .mixins import UUIDMixin
 
 class GenreFilmwork(UUIDMixin):
     film_work = models.ForeignKey('Filmwork', on_delete=models.CASCADE)
-    genre = models.ForeignKey('Genre', on_delete=models.CASCADE, verbose_name=_('genre'))
+    genre = models.ForeignKey('Genre', on_delete=models.CASCADE,
+                              verbose_name=_('genre'))
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:

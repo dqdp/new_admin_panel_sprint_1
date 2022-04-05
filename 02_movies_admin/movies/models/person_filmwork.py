@@ -6,7 +6,8 @@ from .mixins import UUIDMixin
 
 class PersonFilmWork(UUIDMixin):
     film_work = models.ForeignKey('Filmwork', on_delete=models.CASCADE)
-    person = models.ForeignKey('Person', on_delete=models.CASCADE, verbose_name=_('person'))
+    person = models.ForeignKey('Person', on_delete=models.CASCADE,
+                               verbose_name=_('person'))
     role = models.CharField(_('role'), max_length=100, null=True)
     created = models.DateTimeField(auto_now_add=True)
 
