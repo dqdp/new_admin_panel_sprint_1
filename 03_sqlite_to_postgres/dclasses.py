@@ -22,8 +22,8 @@ class Genre:
     id: uuid.UUID
     name: str
     description: str
-    created: datetime
-    updated: datetime
+    created: str
+    updated: str
 
 
 @dataclass
@@ -31,22 +31,22 @@ class GenreFilmwork:
     id: uuid.UUID
     filmwork_id: uuid.UUID
     genre_id: uuid.UUID
-    created: datetime
+    created: str
     
     
 @dataclass
 class Person:
     id: uuid.UUID
     full_name: str
-    created: datetime
-    updated: datetime
+    created: str
+    updated: str
     
 
 @dataclass
 class PersonFilmwork:
     id: uuid.UUID
     filmwork_id: uuid.UUID
-    peron_id: uuid.UUID
+    person_id: uuid.UUID
     role: str
-    created: datetime
+    created: str
     

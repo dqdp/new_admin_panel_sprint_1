@@ -11,7 +11,7 @@ class Gender(models.TextChoices):
 
 class Person(UUIDMixin, TimeStampedMixin):
     full_name = models.CharField(_('full_name'), max_length=255)
-    gender = models.TextField(_('gender'), choices=Gender.choices, null=True)
+    #gender = models.TextField(_('gender'), choices=Gender.choices, null=True)
 
     class Meta:
         db_table = "content\".\"person"
