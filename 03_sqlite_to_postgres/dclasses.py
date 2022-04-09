@@ -1,6 +1,5 @@
 import uuid
-
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import date, datetime
 
 
@@ -15,8 +14,8 @@ class Filmwork:
     type: str
     created: datetime
     updated: datetime
-    
-    
+
+
 @dataclass
 class Genre:
     id: uuid.UUID
@@ -32,15 +31,15 @@ class GenreFilmwork:
     filmwork_id: uuid.UUID
     genre_id: uuid.UUID
     created: str
-    
-    
+
+
 @dataclass
 class Person:
     id: uuid.UUID
     full_name: str
     created: str
     updated: str
-    
+
 
 @dataclass
 class PersonFilmwork:
@@ -49,4 +48,3 @@ class PersonFilmwork:
     person_id: uuid.UUID
     role: str
     created: str
-    

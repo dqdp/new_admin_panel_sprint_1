@@ -1,82 +1,84 @@
-﻿from typing import List
+﻿from typing import Any, List
 
-from dclasses import Filmwork, Person, Genre, PersonFilmwork, GenreFilmwork
-from config.sql import *
+from config.sql import (
+    COLUMNS_FILMWORK,
+    COLUMNS_GENRE,
+    COLUMNS_GENRE_FILMWORK,
+    COLUMNS_PERSON,
+    COLUMNS_PERSON_FILMWORK,
+    INSERT_TEMPLATE,
+)
+from dclasses import Filmwork, Genre, GenreFilmwork, Person, PersonFilmwork
 
-def c(field) -> str:
-        if field is None:
-            return ''
-        return field
+
+def prepare(field: Any) -> str:
+    if field is None:
+        return 'NULL'
+    if type(field) == str:
+        field = field.replace("'", "''")
+    return f"'{field}'"
+
 
 class QueriesMaker:
 
     @staticmethod
     def make_insert_query_filmwork(data: List[Filmwork]) -> str:
-
-        inserts = ''
+        inserts = str()
         for i, row in enumerate(data):
-            inserts += f'''('{row.id}',
-                            '{c(row.title).replace("'", "''")}',
-                            '{c(row.description).replace("'", "''")}',
-                            '{c(row.creation_date)}',
-                            '{c(row.file_path)}',
-                            '{row.rating}',
-                            '{c(row.type)}',
-                            '{row.created}',
-                            '{row.updated}'),'''
-        
-        return INSERT_QUERY_TEMPLATE.format('film_work', COLUMNS_FILMWORK, inserts[:-1])
+            inserts += f'({prepare(row.id)},'\
+                       f'{prepare(row.title)},'\
+                       f'{prepare(row.description)},'\
+                       f'{prepare(row.creation_date)},'\
+                       f'{prepare(row.file_path)},'\
+                       f'{prepare(row.rating)},'\
+                       f'{prepare(row.type)},'\
+                       f'{prepare(row.created)},'\
+                       f'{prepare(row.updated)}),'
 
+        return INSERT_TEMPLATE.format('film_work', COLUMNS_FILMWORK, inserts[:-1])
 
     @staticmethod
     def make_insert_query_person(data: List[Person]) -> str:
-
         inserts = str()
         for i, row in enumerate(data):
-            inserts += f'''('{row.id}',
-                            '{c(row.full_name).replace("'", "''")}',
-                            '{row.created}',
-                            '{row.updated}'),'''
+            inserts += f'({prepare(row.id)},'\
+                       f'{prepare(row.full_name)},'\
+                       f'{prepare(row.created)},'\
+                       f'{prepare(row.updated)}),'
 
-        return INSERT_QUERY_TEMPLATE.format('person', COLUMNS_PERSON, inserts[:-1])
-
+        return INSERT_TEMPLATE.format('person', COLUMNS_PERSON, inserts[:-1])
 
     @staticmethod
     def make_insert_query_genre(data: List[Genre]) -> str:
-
         inserts = str()
         for i, row in enumerate(data):
-            inserts += f'''('{row.id}',
-                            '{c(row.name).replace("'", "''")}',
-                            '{c(row.description).replace("'", "''")}',
-                            '{row.created}',
-                            '{row.updated}'),'''
+            inserts += f'({prepare(row.id)},'\
+                       f'{prepare(row.name)},'\
+                       f'{prepare(row.description)},'\
+                       f'{prepare(row.created)},'\
+                       f'{prepare(row.updated)}),'
 
-        return INSERT_QUERY_TEMPLATE.format('person', COLUMNS_GENRE, inserts[:-1])
-
+        return INSERT_TEMPLATE.format('genre', COLUMNS_GENRE, inserts[:-1])
 
     @staticmethod
     def make_insert_query_person_filmwork(data: List[PersonFilmwork]) -> str:
-
         inserts = str()
         for i, row in enumerate(data):
-            inserts += f'''('{row.id}',
-                            '{row.filmwork_id}',
-                            '{row.person_id}',
-                            '{c(row.role)}',
-                            '{row.created}'),'''
+            inserts += f'({prepare(row.id)},'\
+                       f'{prepare(row.person_id)},'\
+                       f'{prepare(row.filmwork_id)},'\
+                       f'{prepare(row.role)},'\
+                       f'{prepare(row.created)}),'
 
-        return INSERT_QUERY_TEMPLATE.format('person', COLUMNS_PERSON_FILMWORK, inserts[:-1])
-
+        return INSERT_TEMPLATE.format('person_film_work', COLUMNS_PERSON_FILMWORK, inserts[:-1])
 
     @staticmethod
     def make_insert_query_genre_filmwork(data: List[GenreFilmwork]) -> str:
-
         inserts = str()
         for i, row in enumerate(data):
-            inserts += f'''('{row.id}',
-                            '{row.genre_id}',
-                            '{row.filmwork_id}',
-                            '{row.created}'),'''
+            inserts += f'({prepare(row.id)},'\
+                       f'{prepare(row.genre_id)},'\
+                       f'{prepare(row.filmwork_id)},'\
+                       f'{prepare(row.created)}),'
 
-        return INSERT_QUERY_TEMPLATE.format('person', COLUMNS_GENRE_FILMWORK, inserts[:-1])
+        return INSERT_TEMPLATE.format('genre_film_work', COLUMNS_GENRE_FILMWORK, inserts[:-1])

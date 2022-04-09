@@ -1,7 +1,8 @@
 import os
+
 from dotenv import load_dotenv
 
-from dclasses import Filmwork, Person, Genre, PersonFilmwork, GenreFilmwork
+from dclasses import Filmwork, Genre, GenreFilmwork, Person, PersonFilmwork
 from queries_maker import QueriesMaker as QM
 
 load_dotenv()
@@ -20,19 +21,21 @@ DATABASES = {
     }
 }
 
+# flake8 ругается на отступы, но без них ухудшается читаемость этого кода
+
 QUERY_MAKERS = {
-    'film_work'       : QM.make_insert_query_filmwork, 
+    'film_work'       : QM.make_insert_query_filmwork,
     'genre'           : QM.make_insert_query_genre,
     'genre_film_work' : QM.make_insert_query_genre_filmwork,
     'person'          : QM.make_insert_query_person,
     'person_film_work': QM.make_insert_query_person_filmwork
-    }
+}
 
 
 TABLES = {
-    'film_work'       : Filmwork, 
+    'film_work'       : Filmwork,
     'genre'           : Genre,
     'genre_film_work' : GenreFilmwork,
     'person'          : Person,
     'person_film_work': PersonFilmwork
-    }
+}

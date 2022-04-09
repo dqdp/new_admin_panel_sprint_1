@@ -1,14 +1,11 @@
 import sqlite3
 
-from dclasses import *
 from config.settings import ROWS_BATCH_SIZE, TABLES
-
 
 
 class SQLiteLoader:
     def __init__(self, connection: sqlite3.Connection):
         self.connection = connection
-
 
     def load_data(self, query: str, table_name: str, count_records: int = ROWS_BATCH_SIZE):
         cursor = self.connection.cursor()
