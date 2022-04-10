@@ -5,7 +5,7 @@ import psycopg2
 from psycopg2.extras import DictCursor
 
 from config.settings import SQLITE_PATH, DATABASES, TABLES
-from transfer_data import transfer_data
+from main import transfer_data
 
 
 def test_count_rows():
