@@ -15,7 +15,8 @@ class Filmwork(UUIDMixin, TimeStampedMixin):
     title = models.CharField(_('title'), max_length=320)
     description = models.TextField(_('description'), blank=True)
     creation_date = models.DateField(_('creation_date'), null=True, blank=True)
-    file_path = models.FileField(_('file'), blank=True, null=True, upload_to='movies/')
+    file_path = models.FileField(_('file'), blank=True, null=True,
+                                 upload_to='movies/')
     rating = models.FloatField(_('rating'), null=True, blank=True,
                                validators=[MinValueValidator(0),
                                            MaxValueValidator(100)])
