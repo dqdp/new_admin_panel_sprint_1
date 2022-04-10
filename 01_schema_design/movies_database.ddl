@@ -30,6 +30,8 @@ CREATE TABLE IF NOT EXISTS content.person (
     modified timestamp with time zone
 ); 
 
+CREATE INDEX person_full_name_idx ON content.person(full_name); 
+
 CREATE TABLE IF NOT EXISTS content.genre_film_work (
     id uuid PRIMARY KEY,
     genre_id uuid REFERENCES content.genre,
@@ -44,4 +46,3 @@ CREATE TABLE IF NOT EXISTS content.person_film_work (
     role TEXT NOT NULL,
     created timestamp with time zone 
 ); 
-
