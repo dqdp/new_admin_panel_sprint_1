@@ -26,7 +26,6 @@ CREATE TABLE IF NOT EXISTS content.genre (
 CREATE TABLE IF NOT EXISTS content.person (
     id uuid PRIMARY KEY,
     full_name TEXT NOT NULL,
-    --description TEXT,
     created timestamp with time zone,
     modified timestamp with time zone
 ); 

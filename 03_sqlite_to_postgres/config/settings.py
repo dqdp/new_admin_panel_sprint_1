@@ -7,7 +7,7 @@ from queries_maker import QueriesMaker as QM
 
 load_dotenv()
 
-DB_PATH = 'db.sqlite'
+SQLITE_PATH = 'db.sqlite'
 
 ROWS_BATCH_SIZE = 100
 
