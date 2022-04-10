@@ -4,7 +4,7 @@ from itertools import chain
 import psycopg2
 from psycopg2.extras import DictCursor
 
-from config.settings import SQLITE_PATH, DATABASES, TABLES
+from config.settings import DATABASES, SQLITE_PATH, TABLES
 from main import transfer_data
 
 
