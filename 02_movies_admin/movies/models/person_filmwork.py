@@ -1,5 +1,3 @@
-from enum import unique
-from unittest.mock import DEFAULT
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
