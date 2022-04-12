@@ -25,12 +25,12 @@ class PersonFilmWork(UUIDMixin):
     class Meta:
         db_table = "content\".\"person_film_work"
         constraints = [
-            models.UniqueConstraint(fields=['film_work', 'person'],
-                                    name='film_work_person_uniq')
+            models.UniqueConstraint(fields=['film_work', 'person', 'role'],
+                                    name='film_work_person_role_uniq')
         ]
         indexes = [
-            models.Index(fields=['film_work', 'person'],
-                         name='film_work_person_idx')
+            models.Index(fields=['film_work', 'person', 'role'],
+                         name='film_work_person_role_idx')
         ]
         verbose_name = _('person')
         verbose_name_plural = _('persons')
