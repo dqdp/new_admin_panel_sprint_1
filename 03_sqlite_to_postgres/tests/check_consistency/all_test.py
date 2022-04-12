@@ -1,17 +1,13 @@
-import sqlite3
 from itertools import chain
 
-import psycopg2
-from psycopg2.extras import DictCursor
-
-from config.settings import DATABASES, SQLITE_PATH, TABLES
-from main import transfer_data
+from config.settings import TABLES
+from main import open_postgres, open_sqlite, transfer_data
 
 
 def test_count_rows():
     transfer_data()
-    with sqlite3.connect(SQLITE_PATH) as sqlite_conn,\
-         psycopg2.connect(**DATABASES['postgres'], cursor_factory=DictCursor) as pg_conn:
+    with open_sqlite() as sqlite_conn,\
+         open_postgres() as pg_conn:
 
         for table in TABLES:
 
@@ -28,8 +24,8 @@ def test_count_rows():
 
 def test_name_tables():
     transfer_data()
-    with sqlite3.connect(SQLITE_PATH) as sqlite_conn,\
-         psycopg2.connect(**DATABASES['postgres'], cursor_factory=DictCursor) as pg_conn:
+    with open_sqlite() as sqlite_conn,\
+         open_postgres() as pg_conn:
 
         cursor_sqlite = sqlite_conn.cursor()
         cursor_sqlite.execute("SELECT name FROM sqlite_master WHERE type='table';")
@@ -51,8 +47,8 @@ def rearrange(table: str, r: list) -> tuple:
 
 def test_data():
     transfer_data()
-    with sqlite3.connect(SQLITE_PATH) as sqlite_conn,\
-         psycopg2.connect(**DATABASES['postgres'], cursor_factory=DictCursor) as pg_conn:
+    with open_sqlite() as sqlite_conn,\
+         open_postgres() as pg_conn:
 
         for table in TABLES:
 
