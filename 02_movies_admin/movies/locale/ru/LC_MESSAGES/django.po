@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-10 16:56+0000\n"
+"POT-Creation-Date: 2022-04-12 10:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,11 +19,6 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
-
-#: venv/lib/python3.8/site-packages/_pytest/config/argparsing.py:458
-#, python-format
-msgid "ambiguous option: %(option)s could match %(matches)s"
-msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/contrib/messages/apps.py:7
 msgid "Messages"
@@ -1258,11 +1253,11 @@ msgstr "Рейтинг"
 msgid "type"
 msgstr "Тип"
 
-#: movies/models/filmwork.py:35
+#: movies/models/filmwork.py:39
 msgid "filmwork"
 msgstr "Кинопроизведение"
 
-#: movies/models/filmwork.py:36
+#: movies/models/filmwork.py:40
 msgid "filmworks"
 msgstr "Кинопроизведения"
 
@@ -1283,15 +1278,27 @@ msgstr "Жанры"
 msgid "full_name"
 msgstr "Имя"
 
-#: movies/models/person.py:15 movies/models/person_filmwork.py:10
-#: movies/models/person_filmwork.py:16
+#: movies/models/person.py:18 movies/models/person_filmwork.py:17
+#: movies/models/person_filmwork.py:25
 msgid "person"
 msgstr "Персона"
 
-#: movies/models/person.py:16 movies/models/person_filmwork.py:17
+#: movies/models/person.py:19 movies/models/person_filmwork.py:26
 msgid "persons"
 msgstr "Персоны"
 
-#: movies/models/person_filmwork.py:11
+#: movies/models/person_filmwork.py:8
+msgid "director"
+msgstr "Режиссёр"
+
+#: movies/models/person_filmwork.py:9
+msgid "writer"
+msgstr "Редактор"
+
+#: movies/models/person_filmwork.py:10
+msgid "actor"
+msgstr "Актёр"
+
+#: movies/models/person_filmwork.py:18
 msgid "role"
 msgstr "Роль"
