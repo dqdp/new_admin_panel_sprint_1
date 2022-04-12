@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-12 10:28+0000\n"
+"POT-Creation-Date: 2022-04-12 16:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1263,12 +1263,12 @@ msgstr "Кинопроизведения"
 msgid "name"
 msgstr "Имя"
 
-#: movies/models/genre.py:16 movies/models/genre_filmwork.py:10
-#: movies/models/genre_filmwork.py:15
+#: movies/models/genre.py:16 movies/models/genre_filmwork.py:11
+#: movies/models/genre_filmwork.py:24
 msgid "genre"
 msgstr "Жанр"
 
-#: movies/models/genre.py:17 movies/models/genre_filmwork.py:16
+#: movies/models/genre.py:17 movies/models/genre_filmwork.py:25
 msgid "genres"
 msgstr "Жанры"
 
@@ -1276,27 +1276,31 @@ msgstr "Жанры"
 msgid "full_name"
 msgstr "Имя"
 
-#: movies/models/person.py:18 movies/models/person_filmwork.py:17
-#: movies/models/person_filmwork.py:25
+#: movies/models/person.py:18 movies/models/person_filmwork.py:20
+#: movies/models/person_filmwork.py:37
 msgid "person"
 msgstr "Персона"
 
-#: movies/models/person.py:19 movies/models/person_filmwork.py:26
+#: movies/models/person.py:19 movies/models/person_filmwork.py:38
 msgid "persons"
 msgstr "Персоны"
 
-#: movies/models/person_filmwork.py:8
+#: movies/models/person_filmwork.py:10
 msgid "director"
 msgstr "Режиссёр"
 
-#: movies/models/person_filmwork.py:9
+#: movies/models/person_filmwork.py:11
 msgid "writer"
 msgstr "Редактор"
 
-#: movies/models/person_filmwork.py:10
+#: movies/models/person_filmwork.py:12
 msgid "actor"
 msgstr "Актёр"
 
-#: movies/models/person_filmwork.py:18
+#: movies/models/person_filmwork.py:13
+msgid "unknown"
+msgstr "Неизвестна"
+
+#: movies/models/person_filmwork.py:21
 msgid "role"
 msgstr "Роль"
