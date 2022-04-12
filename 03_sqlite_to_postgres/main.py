@@ -52,7 +52,6 @@ def transfer_data():
                     break
                 except Exception as e:
                     logger.error(f'Error during transferred table {table} : {e}')
-                    print()
                     raise e
 
 

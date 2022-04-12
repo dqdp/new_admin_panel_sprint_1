@@ -1,3 +1,4 @@
+from enum import unique
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -22,5 +23,13 @@ class PersonFilmWork(UUIDMixin):
 
     class Meta:
         db_table = "content\".\"person_film_work"
+        constraints = [
+            models.UniqueConstraint(fields=['film_work', 'person'],
+                                    name='film_work_person_uniq')
+        ]
+        indexes = [
+            models.Index(fields=['film_work', 'person'],
+                         name='film_work_person_idx')
+        ]
         verbose_name = _('person')
         verbose_name_plural = _('persons')
