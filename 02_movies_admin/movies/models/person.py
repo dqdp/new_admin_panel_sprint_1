@@ -12,5 +12,8 @@ class Person(UUIDMixin, TimeStampedMixin):
 
     class Meta:
         db_table = "content\".\"person"
+        indexes = [
+            models.Index(fields=['full_name'], name='person_full_name_idx')
+        ]
         verbose_name = _('person')
         verbose_name_plural = _('persons')
