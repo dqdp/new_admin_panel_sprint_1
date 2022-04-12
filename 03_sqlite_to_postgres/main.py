@@ -4,7 +4,7 @@ from contextlib import contextmanager
 import psycopg2
 from psycopg2.extras import DictCursor
 
-from config.loggger_settings import logger
+from config.logger_settings import logger
 from config.settings import DATABASES, QUERY_MAKERS, SQLITE_PATH, TABLES
 from postgres_saver import PostgresSaver
 from sqlite_loader import SQLiteLoader
